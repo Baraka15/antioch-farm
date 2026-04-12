@@ -1,5 +1,5 @@
-
 "use client";
+
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -55,7 +55,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-20 px-4 md:px-12 bg-primary text-white">
+    <section className="py-20 px-4 md:px-12 bg-green-700 text-white">
       <motion.div
         ref={ref}
         initial="hidden"
@@ -78,9 +78,17 @@ export default function Testimonials() {
               whileHover={{ y: -5 }}
               className="bg-white/10 p-8 rounded-xl backdrop-blur-sm"
             >
-              <p className="mb-6 italic text-lg">"{testimonial.content}"</p>
-              <div className="font-bold">{testimonial.name}</div>
-              <div className="text-white/80">{testimonial.role}</div>
+              <p className="mb-6 italic text-lg">
+                "{testimonial.content}"
+              </p>
+
+              <div className="font-bold">
+                {testimonial.name}
+              </div>
+
+              <div className="text-white/80">
+                {testimonial.role}
+              </div>
             </motion.div>
           ))}
         </div>
@@ -88,4 +96,3 @@ export default function Testimonials() {
     </section>
   );
 }
-  
