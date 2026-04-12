@@ -1,9 +1,18 @@
-
 "use client";
+
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-export default function Hero() {
+const images = [
+  "/gallery1.jpg",
+  "/gallery2.jpg",
+  "/gallery3.jpg",
+  "/gallery4.jpg",
+  "/gallery5.jpg",
+  "/gallery6.jpg",
+];
+
+export default function Gallery() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -14,7 +23,7 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
@@ -31,66 +40,45 @@ export default function Hero() {
   };
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
-      <div className="absolute inset-0 bg-black/30 z-10" />
-      <video
-        autoPlay
-        loop
-        muted
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/farm-video.mp4" type="video/mp4" />
-      </video>
-
+    <section id="gallery" className="py-20 px-4 md:px-12 bg-gray-50">
       <motion.div
         ref={ref}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         variants={container}
-        className="relative z-20 h-full flex flex-col justify-center items-center text-center px-4"
+        className="max-w-6xl mx-auto"
       >
-        <motion.h1
-          variants={item}
-          className="text-4xl md:text-6xl font-bold text-white mb-6"
-        >
-          Farm-Fresh Organic Produce
-        </motion.h1>
         <motion.h2
           variants={item}
-          className="text-xl md:text-2xl text-white mb-8 max-w-2xl"
+          className="text-3xl md:text-4xl font-bold text-center mb-4 text-green-700"
         >
-          Direct from Antioch Mixed Farm
+          Our Farm Gallery
         </motion.h2>
-        <motion.div variants={item} className="flex gap-4">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-primary text-white px-8 py-3 rounded-full font-medium"
-          >
-            Our Products
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-white text-primary px-8 py-3 rounded-full font-medium"
-          >
-            Learn More
-          </motion.button>
-        </motion.div>
 
-        {/* Floating elements */}
-        <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/4 w-8 h-8 bg-secondary rounded-full opacity-30"
-        />
-        <motion.div
-          animate={{ y: [0, -15, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-1/3 right-1/3 w-12 h-12 bg-primary rounded-full opacity-20"
-        />
+        <motion.p
+          variants={item}
+          className="text-center mb-12 max-w-2xl mx-auto text-gray-600"
+        >
+          See the beauty and care that goes into every product we grow.
+        </motion.p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {images.map((image, index) => (
+            <motion.div
+              key={index}
+              variants={item}
+              whileHover={{ scale: 1.03 }}
+              className="overflow-hidden rounded-lg shadow-md cursor-pointer"
+            >
+              <motion.img
+                src={image}
+                alt={`Farm gallery image ${index + 1}`}
+                className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
+              />
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
-    </div>
+    </section>
   );
 }
-  
