@@ -1,5 +1,5 @@
-
 "use client";
+
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -58,7 +58,7 @@ export default function Products() {
   };
 
   return (
-    <section id="products" className="py-20 px-4 md:px-12">
+    <section id="products" className="py-20 px-4 md:px-12 bg-gray-50">
       <motion.div
         ref={ref}
         initial="hidden"
@@ -68,13 +68,14 @@ export default function Products() {
       >
         <motion.h2
           variants={item}
-          className="text-3xl md:text-4xl font-bold text-center mb-4 text-primary"
+          className="text-3xl md:text-4xl font-bold text-center mb-4 text-green-700"
         >
           Our Products
         </motion.h2>
+
         <motion.p
           variants={item}
-          className="text-center mb-12 max-w-2xl mx-auto"
+          className="text-center mb-12 max-w-2xl mx-auto text-gray-600"
         >
           Farm-fresh organic products grown with care and sustainability in mind.
         </motion.p>
@@ -91,19 +92,32 @@ export default function Products() {
                 <motion.img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
+
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{product.name}</h3>
-                <p className="text-gray-600 mb-4">{product.description}</p>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-primary text-white px-4 py-2 rounded-full text-sm"
+                <h3 className="text-xl font-bold mb-2">
+                  {product.name}
+                </h3>
+
+                <p className="text-gray-600 mb-4">
+                  {product.description}
+                </p>
+
+                <a
+                  href="https://wa.me/256777466609"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Learn More
-                </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-green-700 text-white px-4 py-2 rounded-full text-sm"
+                  >
+                    Order via WhatsApp
+                  </motion.button>
+                </a>
               </div>
             </motion.div>
           ))}
@@ -112,4 +126,3 @@ export default function Products() {
     </section>
   );
 }
-  
