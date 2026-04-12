@@ -1,5 +1,5 @@
-
 "use client";
+
 import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -12,7 +12,7 @@ export default function WhatsAppButton() {
       className="fixed bottom-8 right-8 z-50"
     >
       <motion.a
-        href="https://wa.me/256XXXXXXXXX"
+        href="https://wa.me/256777466609"
         target="_blank"
         rel="noopener noreferrer"
         className="bg-green-500 text-white p-4 rounded-full shadow-lg flex items-center justify-center"
@@ -37,4 +37,3 @@ export default function WhatsAppButton() {
     </motion.div>
   );
 }
-  
