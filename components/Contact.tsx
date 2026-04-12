@@ -1,5 +1,5 @@
-
 "use client";
+
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -31,7 +31,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 md:px-12">
+    <section id="contact" className="py-20 px-4 md:px-12 bg-gray-50">
       <motion.div
         ref={ref}
         initial="hidden"
@@ -41,13 +41,14 @@ export default function Contact() {
       >
         <motion.h2
           variants={item}
-          className="text-3xl md:text-4xl font-bold text-center mb-4 text-primary"
+          className="text-3xl md:text-4xl font-bold text-center mb-4 text-green-700"
         >
           Get In Touch
         </motion.h2>
+
         <motion.p
           variants={item}
-          className="text-center mb-12 max-w-2xl mx-auto"
+          className="text-center mb-12 max-w-2xl mx-auto text-gray-600"
         >
           Have questions or want to place an order? Contact us today.
         </motion.p>
@@ -65,9 +66,10 @@ export default function Contact() {
                 whileFocus={{ scale: 1.02 }}
                 type="text"
                 id="name"
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
               />
             </div>
+
             <div>
               <label htmlFor="email" className="block mb-2 font-medium">
                 Email
@@ -76,10 +78,11 @@ export default function Contact() {
                 whileFocus={{ scale: 1.02 }}
                 type="email"
                 id="email"
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
               />
             </div>
           </div>
+
           <div>
             <label htmlFor="subject" className="block mb-2 font-medium">
               Subject
@@ -88,9 +91,10 @@ export default function Contact() {
               whileFocus={{ scale: 1.02 }}
               type="text"
               id="subject"
-              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
             />
           </div>
+
           <div>
             <label htmlFor="message" className="block mb-2 font-medium">
               Message
@@ -99,13 +103,14 @@ export default function Contact() {
               whileFocus={{ scale: 1.02 }}
               id="message"
               rows={4}
-              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
             ></motion.textarea>
           </div>
+
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="bg-primary text-white py-3 px-6 rounded-lg font-medium mt-4"
+            className="bg-green-700 text-white py-3 px-6 rounded-lg font-medium mt-4"
           >
             Send Message
           </motion.button>
@@ -114,4 +119,3 @@ export default function Contact() {
     </section>
   );
 }
-  
