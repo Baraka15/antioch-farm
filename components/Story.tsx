@@ -1,5 +1,5 @@
-
 "use client";
+
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -50,6 +50,7 @@ export default function Story() {
         variants={container}
         className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
       >
+        {/* Image */}
         <motion.div variants={imageItem}>
           <motion.img
             src="/farm-story.jpg"
@@ -60,37 +61,47 @@ export default function Story() {
           />
         </motion.div>
 
+        {/* Text */}
         <div>
           <motion.h2
             variants={item}
-            className="text-3xl md:text-4xl font-bold mb-6 text-primary"
+            className="text-3xl md:text-4xl font-bold mb-6 text-green-700"
           >
             Our Story
           </motion.h2>
-          <motion.p variants={item} className="mb-4">
+
+          <motion.p variants={item} className="mb-4 text-gray-700">
             Antioch Mixed Farm was founded in 2010 with a vision to provide
             organic, sustainable produce to our local community in Uganda.
           </motion.p>
-          <motion.p variants={item} className="mb-4">
+
+          <motion.p variants={item} className="mb-4 text-gray-700">
             What started as a small family farm has grown into a thriving
             agricultural business while maintaining our commitment to ethical
             farming practices.
           </motion.p>
-          <motion.p variants={item} className="mb-6">
+
+          <motion.p variants={item} className="mb-6 text-gray-700">
             We believe in working with nature, not against it, to bring you the
             freshest, healthiest products possible.
           </motion.p>
-          <motion.button
-            variants={item}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-primary text-white px-6 py-2 rounded-full font-medium"
+
+          <a
+            href="https://wa.me/256777466609"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Read More
-          </motion.button>
+            <motion.button
+              variants={item}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-green-700 text-white px-6 py-2 rounded-full font-medium"
+            >
+              Contact Us
+            </motion.button>
+          </a>
         </div>
       </motion.div>
     </section>
   );
 }
-  
