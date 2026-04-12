@@ -1,5 +1,5 @@
-
 "use client";
+
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -40,7 +40,7 @@ export default function Gallery() {
   };
 
   return (
-    <section id="gallery" className="py-20 px-4 md:px-12">
+    <section id="gallery" className="py-20 px-4 md:px-12 bg-gray-50">
       <motion.div
         ref={ref}
         initial="hidden"
@@ -50,13 +50,14 @@ export default function Gallery() {
       >
         <motion.h2
           variants={item}
-          className="text-3xl md:text-4xl font-bold text-center mb-4 text-primary"
+          className="text-3xl md:text-4xl font-bold text-center mb-4 text-green-700"
         >
           Our Farm Gallery
         </motion.h2>
+
         <motion.p
           variants={item}
-          className="text-center mb-12 max-w-2xl mx-auto"
+          className="text-center mb-12 max-w-2xl mx-auto text-gray-600"
         >
           See the beauty and care that goes into every product we grow.
         </motion.p>
@@ -72,7 +73,7 @@ export default function Gallery() {
               <motion.img
                 src={image}
                 alt={`Farm gallery image ${index + 1}`}
-                className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500"
+                className="w-full h-64 object-cover transition-transform duration-500 hover:scale-110"
               />
             </motion.div>
           ))}
@@ -81,4 +82,3 @@ export default function Gallery() {
     </section>
   );
 }
-  
