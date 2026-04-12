@@ -1,16 +1,17 @@
-
 "use client";
+
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Products from "@/components/Products";
-import Story from "@/components/Story";
-import Gallery from "@/components/Gallery";
-import Testimonials from "@/components/Testimonials";
-import CTA from "@/components/CTA";
-import Contact from "@/components/Contact";
-import WhatsAppButton from "@/components/WhatsAppButton";
+
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import Products from "../components/Products";
+import Story from "../components/Story";
+import Gallery from "../components/Gallery";
+import Testimonials from "../components/Testimonials";
+import CTA from "../components/CTA";
+import Contact from "../components/Contact";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 export default function Home() {
   const [ref, inView] = useInView({
@@ -22,7 +23,7 @@ export default function Home() {
     <div className="relative">
       <Navbar />
       <Hero />
-      
+
       <motion.div
         ref={ref}
         initial="hidden"
@@ -45,4 +46,3 @@ export default function Home() {
     </div>
   );
 }
-  
