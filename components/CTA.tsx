@@ -3,46 +3,44 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import Products from "../components/Products";
-import Story from "../components/Story";
-import Gallery from "../components/Gallery";
-import Testimonials from "../components/Testimonials";
-import CTA from "../components/CTA";
-import Contact from "../components/Contact";
-import WhatsAppButton from "../components/WhatsAppButton";
-
-export default function Home() {
+export default function CTA() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
   return (
-    <div className="relative">
-      <Navbar />
-      <Hero />
-
+    <section className="py-24 px-4 md:px-12 bg-green-800">
       <motion.div
         ref={ref}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        variants={{
-          hidden: { opacity: 0 },
-          visible: { opacity: 1 },
-        }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.6 }}
+        className="max-w-3xl mx-auto text-center"
       >
-        <Products />
-        <Story />
-        <Gallery />
-        <Testimonials />
-        <CTA />
-        <Contact />
-      </motion.div>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          Ready to Taste the Difference?
+        </h2>
 
-      <WhatsAppButton />
-    </div>
+        <p className="text-white/80 text-lg mb-10">
+          Order fresh, organic produce directly from our farm to your table.
+          Contact us on WhatsApp and we'll have it ready for you.
+        </p>
+
+        <a
+          href="https://wa.me/256777466609"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <motion.button
+            whileHover={{ scale: 1.07 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-white text-green-800 font-bold px-10 py-4 rounded-full text-lg shadow-lg"
+          >
+            Order on WhatsApp
+          </motion.button>
+        </a>
+      </motion.div>
+    </section>
   );
 }
